@@ -67,7 +67,7 @@ if df is not None:
     df = df.set_index("TIMESTAMP")
     print(f"Writing dataframe with {len(df.index)} rows to database")
     df.to_sql(DB_TABLE_NAME, con=engine, if_exists="append")
-    print(f"Successfully wrote {len((file for file in files if file not in already_imported_files))} files to database")
+    print(f"Successfully wrote {len([file for file in files if file not in already_imported_files])} files to database")
 else:
     print(f"No new files added to db")
 
