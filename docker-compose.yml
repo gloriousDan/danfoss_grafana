@@ -10,8 +10,19 @@ services:
       - GF_INSTALL_PLUGINS=frser-sqlite-datasource
     volumes:
       - grafana-data:/var/lib/grafana
-      - ./test.db:/test.db
+      - ./db:/db/
       # - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+  
+  scraper:
+    build:
+      # context: .
+      context: https://github.com/gloriousDan/danfoss_grafana.git#main
+    env_file:
+      - .env
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./db:/app/db
 
 volumes:
   grafana-data:

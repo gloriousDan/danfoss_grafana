@@ -3,14 +3,15 @@ from datetime import datetime
 from ftplib import FTP
 from sqlalchemy import create_engine, text , inspect
 from io import BytesIO
+from os import environ
 
-DB_FILE_NAME = "test.db"
-DB_TABLE_NAME = "danfoss"
+DB_FILE_NAME = environ.get("DB_FILE_NAME")
+DB_TABLE_NAME = environ.get("DB_TABLE_NAME")
 
-FTP_LOGIN = ""
-FTP_PASS = ""
-FTP_DIR = ""
-FTP_URL = ""
+FTP_LOGIN = environ.get("FTP_LOGIN") 
+FTP_PASS = environ.get("FTP_PASS") 
+FTP_DIR = environ.get("FTP_DIR")
+FTP_URL = environ.get("FTP_URL")
 
 def get_and_convert_dataframe(buffer):
     # pandas
@@ -30,7 +31,7 @@ def get_scanned_files(engine):
 
 
 
-engine = create_engine(f"sqlite:///{DB_FILE_NAME}")
+engine = create_engine(f"sqlite:///db/{DB_FILE_NAME}")
 
 
 already_imported_files = get_scanned_files(engine)
