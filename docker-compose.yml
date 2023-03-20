@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana/grafana-oss:9.4.3
+    ports:
+      - 3000:3000
+    restart: unless-stopped 
+    environment:
+      - GF_INSTALL_PLUGINS=frser-sqlite-datasource
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./test.db:/test.db
+      # - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+
+volumes:
+  grafana-data:
+    driver: local
