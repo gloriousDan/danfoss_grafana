@@ -1,7 +1,7 @@
 # Installation
 ## Docker
 1. Die [docker-compose.yml](https://github.com/gloriousDan/danfoss_grafana/blob/main/docker-compose.yml) Datei herunterladen 
-2. Die [.env.sample](https://github.com/gloriousDan/danfoss_grafana/blob/main/.env.sample) Datei umbenennen zu `.env` und alle Parameter passend setzen.
+2. Die [.env.sample](https://github.com/gloriousDan/danfoss_grafana/blob/main/.env.sample) Datei herunterladen und umbenennen zu `.env` und alle Parameter passend setzen.
 3. `docker-compose up -d` baut das docker image und startet die Container
 4. Weiter mit Schritt 7 aus Manuell
 
