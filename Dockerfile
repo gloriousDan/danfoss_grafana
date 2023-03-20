@@ -1,6 +1,6 @@
 FROM alpine:3.17
 
-RUN apk add --no-cache --update-cache python3 py3-sqlalchemy py3-pandas
+RUN apk add --no-cache --update-cache python3 py3-sqlalchemy py3-pandas tzdata
 WORKDIR /app
 COPY  scraper_sqlite.py .
 
