@@ -1,11 +1,17 @@
-# Installation
-## Docker
+# Grafana Setup für Danfoss TLX Wechselrichter
+Dieses Python script kann 
+* Die log Dateien eines Danfoss TLX Wechselrichters von einem FTP Server lesen
+* Die Daten in eine sqlite Datenbank parsen
+* Dann die Daten in einem Grafana Dashboard plotten
+
+## Installation
+### Docker
 1. Die [docker-compose.yml](https://github.com/gloriousDan/danfoss_grafana/blob/main/docker-compose.yml) Datei herunterladen 
 2. Die [.env.sample](https://github.com/gloriousDan/danfoss_grafana/blob/main/.env.sample) Datei herunterladen und umbenennen zu `.env` und alle Parameter passend setzen.
 3. `docker-compose up -d` baut das docker image und startet die Container
 4. Weiter mit Schritt 7 aus Manuell
 
-## Manuell
+### Manuell
 1. Virtuelles Environment erstellen: `python -m venv venv`
 2. Virtuelles Environment aktivieren: `source venv/bin/activate`
 3. requirements installieren: `pip install -r requirements.txt`
